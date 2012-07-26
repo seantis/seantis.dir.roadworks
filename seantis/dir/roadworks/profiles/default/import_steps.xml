@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="seantis.dir.roadworks.installbehavior"
+               version="20120726-01"
+               handler="seantis.dir.roadworks.setuphandlers.installBehavior"
+               title="Register item behavior">
+  Registers the seantis.dir.roadworks behavior for the seantis.dir.item
+  </import-step>
+</import-steps>
