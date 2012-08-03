@@ -6,5 +6,6 @@
 
   <div class="directoryInfoText">
     <a tal:attributes="href context/absolute_url" tal:content="context/title"></a>
+    <p tal:content="context/works"></p>
   </div>
 </div>

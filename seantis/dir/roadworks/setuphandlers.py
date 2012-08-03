@@ -17,7 +17,7 @@ def installBehavior(context):
     """Registers behaviors for seantis.dir.base.item."""
 
     fti = get_fti(context, 'seantis.dir.base.item')
-    add_behavior(fti, 'seantis.dir.roadworks.item.IExtendedDirectoryItem')
+    add_behavior(fti, 'seantis.dir.roadworks.item.IRoadworksDirectoryItem')
 
     fti = get_fti(context, 'seantis.dir.base.directory')
-    add_behavior(fti, 'seantis.dir.roadworks.directory.IExtendedDirectory')
+    add_behavior(fti, 'seantis.dir.roadworks.directory.IRoadworksDirectory')

@@ -32,16 +32,16 @@
     <plone:behavior
         title="Roadworks Directory Item"
         description="Provides the additional fields for seantis.dir.base.item"
-        provides=".item.IExtendedDirectoryItem"
-        factory=".item.ExtendedDirectoryItem"
+        provides=".item.IRoadworksDirectoryItem"
+        factory=".item.RoadworksDirectoryItemFactory"
         for="seantis.dir.base.item.IDirectoryItem"
         />
 
     <plone:behavior
         title="Roadworks Directory"
         description="Provides the additional fields for seantis.dir.base.directory"
-        provides=".directory.IExtendedDirectory"
-        factory=".directory.ExtendedDirectory"
+        provides=".directory.IRoadworksDirectory"
+        factory=".directory.RoadworksDirectoryFactory"
         for="seantis.dir.base.directory.IDirectory"
         />
 
