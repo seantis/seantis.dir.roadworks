@@ -28,21 +28,5 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />
-        
-    <plone:behavior
-        title="Roadworks Directory Item"
-        description="Provides the additional fields for seantis.dir.base.item"
-        provides=".item.IRoadworksDirectoryItem"
-        factory=".item.RoadworksDirectoryItemFactory"
-        for="seantis.dir.base.item.IDirectoryItem"
-        />
-
-    <plone:behavior
-        title="Roadworks Directory"
-        description="Provides the additional fields for seantis.dir.base.directory"
-        provides=".directory.IRoadworksDirectory"
-        factory=".directory.RoadworksDirectoryFactory"
-        for="seantis.dir.base.directory.IDirectory"
-        />
 
 </configure>
