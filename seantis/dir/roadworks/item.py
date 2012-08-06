@@ -5,8 +5,8 @@ from collective.dexteritytextindexer import searchable
 from seantis.dir.base import item
 from seantis.dir.base import core
 from seantis.dir.base.interfaces import IFieldMapExtender
-from seantis.dir.base.fieldmap import FieldMap
 
+from seantis.dir.roadworks.directory import IRoadworksDirectory
 from seantis.dir.roadworks import _
   
 class IRoadworksDirectoryItem(item.IDirectoryItem):
@@ -68,14 +68,14 @@ class View(core.View):
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
     """Adapter extending the import/export fieldmap of seantis.dir.facilty.item."""
-    grok.context(IRoadworksDirectoryItem)
+    grok.context(IRoadworksDirectory)
     grok.provides(IFieldMapExtender)
 
     def __init__(self, context):
         self.context = context
 
-    def extend_import(self):
-        itemmap = self.context
+    def extend_import(self, itemmap):
+        itemmap.typename = 'seantis.dir.roadworks.item'
         itemmap.interface = IRoadworksDirectoryItem
 
         extended = ['road', 'works', 'until',
