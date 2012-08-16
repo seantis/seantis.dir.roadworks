@@ -1,5 +1,5 @@
 from five import grok
-from zope.schema import TextLine
+from zope.schema import Text
 from collective.dexteritytextindexer import searchable
 
 from seantis.dir.base import item
@@ -12,38 +12,56 @@ from seantis.dir.roadworks import _
 class IRoadworksDirectoryItem(item.IDirectoryItem):
     """Extends the seantis.dir.IDirectoryItem."""
 
+    searchable('project')
+    project = Text(
+        title=_(u'Project'),
+        required=False
+    )
+
     searchable('road')
-    road = TextLine(
+    road = Text(
         title=_(u'Road'),
         required=False
     )
 
+    searchable('section')
+    section = Text(
+        title=_(u'Section'),
+        required=False
+    )
+
     searchable('works')
-    works = TextLine(
+    works = Text(
         title=_(u'Construction Works'),
         required=False
     )
 
-    searchable('until')
-    until = TextLine(
-        title=_(u'Until'),
+    searchable('timespan')
+    timespan = Text(
+        title=_(u'Timespan'),
         required=False
     )
 
-    searchable('obstacle')
-    obstacle = TextLine(
-        title=_(u'Obstacle'),
+    searchable('obstacles')
+    obstacles = Text(
+        title=_(u'Obstacles'),
+        required=False
+    )
+
+    searchable('closures')
+    closures = Text(
+        title=_(u'Closures'),
         required=False
     )
 
     searchable('constructor')
-    constructor = TextLine(
+    constructor = Text(
         title=_(u'Constructor'),
         required=False
     )
 
     searchable('contact')
-    contact = TextLine(
+    contact = Text(
         title=_(u'Contact'),
         required=False
     )

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-12-01 16:17+0000\n"
+"POT-Creation-Date: 2012-08-16 12:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,4 +13,52 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#: ./item.py:53
+msgid "Closures"
+msgstr "Sperrungen"
+
+#: ./item.py:35
+msgid "Construction Works"
+msgstr "Bauarbeiten"
+
+#: ./item.py:59
+msgid "Constructor"
+msgstr "Bauherrschaft"
+
+#: ./item.py:65
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ./directory.py:11
+msgid "Image"
+msgstr "Bild"
+
+#: ./item.py:47
+msgid "Obstacles"
+msgstr "Behinderungen"
+
+#: ./item.py:17
+msgid "Project"
+msgstr "Projekt"
+
+#: ./item.py:23
+msgid "Road"
+msgstr "Strasse"
+
+#: ./profiles/default/types/seantis.dir.roadworks.directory.xml
+msgid "Roadworks Directory"
+msgstr "Strassenbau Verzeichnis"
+
+#: ./profiles/default/types/seantis.dir.roadworks.item.xml
+msgid "Roadworks Directory Item"
+msgstr "Strassenbau Verzeichnis Eintrag"
+
+#: ./item.py:29
+msgid "Section"
+msgstr "Strassenabschnitt"
+
+#: ./item.py:41
+msgid "Timespan"
+msgstr "Bauzeit"
 
