@@ -96,7 +96,16 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         itemmap.typename = 'seantis.dir.roadworks.item'
         itemmap.interface = IRoadworksDirectoryItem
 
-        extended = ['road', 'works', 'until',
-                    'obstacle', 'constructor', 'contact']
+        extended = [
+            'project', 
+            'road',
+            'section',
+            'works',
+            'timespan',
+            'obstacles',
+            'closures',
+            'constructor',
+            'contact'
+        ]
         
         itemmap.add_fields(extended, len(itemmap))
