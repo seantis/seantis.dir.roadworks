@@ -5,7 +5,9 @@
    lang="en">
 
   <div class="directoryInfoText">
-    <a tal:attributes="href context/absolute_url" tal:content="context/title"></a>
-    <p tal:content="context/works"></p>
+    <div>
+        <a tal:attributes="href context/absolute_url; id context/id" tal:content="context/title"></a>
+        <div style="font-weight: normal;" class="documentDescription" tal:content="context/works"></div>
+    </div>
   </div>
 </div>
