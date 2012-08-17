@@ -28,8 +28,12 @@
             </h2>
             
             <div id="directoryResultList">
-             <div class="directoryInfoText">
-               
+              <div class="directoryInfoText">
+                <br />
+                <dl tal:repeat="detail view/details">
+                  <dt tal:content="python: detail[0]"></dt>
+                  <dd tal:content="python: detail[1]"></dd>
+                </dl>
               </div>
             </div>
 

@@ -4,6 +4,7 @@ from collective.dexteritytextindexer import searchable
 
 from seantis.dir.base import item
 from seantis.dir.base import core
+from seantis.dir.base import utils
 from seantis.dir.base.interfaces import IFieldMapExtender, IDirectoryItem
 
 from seantis.dir.roadworks.directory import IRoadworksDirectory
@@ -83,6 +84,21 @@ class View(core.View):
     grok.require('zope2.View')
 
     template = grok.PageTemplateFile('templates/item.pt')
+
+    def details(self):
+        fields = sorted(IRoadworksDirectoryItem.names())
+        
+        def title(field):
+            return utils.translate(
+                self.context, self.request, IRoadworksDirectoryItem[field].title
+            )
+
+        titles = dict(zip(fields, map(title, fields)))
+        order = sorted(titles.values())
+
+        for field in sorted(fields, key=lambda f: order.index(titles[f])):
+            if getattr(self.context, field):
+                yield titles[field], getattr(self.context, field)
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
     """Adapter extending the import/export fieldmap of seantis.dir.roadworks.item."""
