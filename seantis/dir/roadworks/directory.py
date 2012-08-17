@@ -2,9 +2,10 @@ from five import grok
 from plone.namedfile.field import NamedImage
 
 from seantis.dir.base import directory
+from seantis.dir.base.interfaces import IDirectory
 from seantis.dir.roadworks import _
 
-class IRoadworksDirectory(directory.IDirectory):
+class IRoadworksDirectory(IDirectory):
     """Extends the seantis.dir.base.directory.IDirectory"""
 
     image = NamedImage(

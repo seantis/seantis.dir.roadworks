@@ -1,67 +1,67 @@
 from five import grok
-from zope.schema import Text
+from zope.schema import TextLine
 from collective.dexteritytextindexer import searchable
 
 from seantis.dir.base import item
 from seantis.dir.base import core
-from seantis.dir.base.interfaces import IFieldMapExtender
+from seantis.dir.base.interfaces import IFieldMapExtender, IDirectoryItem
 
 from seantis.dir.roadworks.directory import IRoadworksDirectory
 from seantis.dir.roadworks import _
   
-class IRoadworksDirectoryItem(item.IDirectoryItem):
+class IRoadworksDirectoryItem(IDirectoryItem):
     """Extends the seantis.dir.IDirectoryItem."""
 
     searchable('project')
-    project = Text(
+    project = TextLine(
         title=_(u'Project'),
         required=False
     )
 
     searchable('road')
-    road = Text(
+    road = TextLine(
         title=_(u'Road'),
         required=False
     )
 
     searchable('section')
-    section = Text(
+    section = TextLine(
         title=_(u'Section'),
         required=False
     )
 
     searchable('works')
-    works = Text(
+    works = TextLine(
         title=_(u'Construction Works'),
         required=False
     )
 
     searchable('timespan')
-    timespan = Text(
+    timespan = TextLine(
         title=_(u'Timespan'),
         required=False
     )
 
     searchable('obstacles')
-    obstacles = Text(
+    obstacles = TextLine(
         title=_(u'Obstacles'),
         required=False
     )
 
     searchable('closures')
-    closures = Text(
+    closures = TextLine(
         title=_(u'Closures'),
         required=False
     )
 
     searchable('constructor')
-    constructor = Text(
+    constructor = TextLine(
         title=_(u'Constructor'),
         required=False
     )
 
     searchable('contact')
-    contact = Text(
+    contact = TextLine(
         title=_(u'Contact'),
         required=False
     )
@@ -85,7 +85,7 @@ class View(core.View):
     template = grok.PageTemplateFile('templates/item.pt')
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
-    """Adapter extending the import/export fieldmap of seantis.dir.facilty.item."""
+    """Adapter extending the import/export fieldmap of seantis.dir.roadworks.item."""
     grok.context(IRoadworksDirectory)
     grok.provides(IFieldMapExtender)
 
