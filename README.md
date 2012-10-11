@@ -7,7 +7,7 @@ seantis.dir.roadworks builds on seantis.dir.base, adding information about ongoi
 
 # Dependencies
 
-seantis.dir.roadworks relies on Plone 4.0+ with dexterity and seantis.dir.base:
+seantis.dir.roadworks relies on Plone 4.2+ with dexterity and seantis.dir.base:
 
 # Installation
 
@@ -15,7 +15,7 @@ seantis.dir.roadworks relies on Plone 4.0+ with dexterity and seantis.dir.base:
 
         extends =
             ...
-            http://good-py.appspot.com/release/dexterity/1.1?plone=4.1.2
+            http://dist.plone.org/release/4.2/versions.cfg
 
 2. Add the module to your instance eggs
 
