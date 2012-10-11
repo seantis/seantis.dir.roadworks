@@ -5,7 +5,7 @@ from collective.dexteritytextindexer import searchable
 from seantis.dir.base import item
 from seantis.dir.base import core
 from seantis.dir.base import utils
-from seantis.dir.base.interfaces import IFieldMapExtender, IDirectoryItem
+from seantis.dir.base.interfaces import IFieldMapExtender, IDirectoryItem, IMapMarker
 
 from seantis.dir.roadworks.directory import IRoadworksDirectory
 from seantis.dir.roadworks import _
@@ -125,3 +125,17 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         ]
         
         itemmap.add_fields(extended, len(itemmap))
+
+class RoadworkMapMarker(grok.Adapter):
+
+    grok.context(IRoadworksDirectoryItem)
+    grok.implements(IMapMarker)
+
+    def url(self, letter):
+        """
+        Returns URL to a general marker image.
+        """
+        baseurl = self.context.absolute_url()
+        imagedir = "/++resource++seantis.dir.roadworks.images"
+        image = "/construction-marker.png"
+        return baseurl + imagedir + image

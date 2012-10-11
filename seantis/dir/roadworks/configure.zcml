@@ -29,4 +29,8 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />
 
+    <browser:resourceDirectory
+        name="seantis.dir.roadworks.images"
+        directory="images"/>
+
 </configure>
