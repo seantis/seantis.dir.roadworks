@@ -1,5 +1,7 @@
 from five import grok
 from zope.schema import TextLine
+from zope.schema.interfaces import IText
+from plone.namedfile.field import NamedImage
 from collective.dexteritytextindexer import searchable
 
 from seantis.dir.base import item
@@ -67,6 +69,12 @@ class IRoadworksDirectoryItem(IDirectoryItem):
         required=False
     )
 
+    image = NamedImage(
+        title=_(u'Image'),
+        required=False,
+        default=None
+    )
+
 class RoadworksDirectoryItem(item.DirectoryItem):
     pass
 
@@ -97,7 +105,9 @@ class View(core.View):
         order = sorted(titles.values())
 
         for field in sorted(fields, key=lambda f: order.index(titles[f])):
-            if getattr(self.context, field):
+            # Show only fields whose string representation makes sense.
+            if IText.providedBy(IRoadworksDirectoryItem[field]) and \
+               getattr(self.context, field):
                 yield titles[field], getattr(self.context, field)
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
