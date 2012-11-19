@@ -5,6 +5,7 @@
 ----------------
 
 - Validator for image field.
+- Attachement field added.
 
 1.2a
 ----

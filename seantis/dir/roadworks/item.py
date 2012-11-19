@@ -3,6 +3,7 @@ from five import grok
 from zope.schema import TextLine
 from zope.schema.interfaces import IText
 from zope.interface import Invalid
+from plone.namedfile.field import NamedFile
 from plone.namedfile.field import NamedImage
 from plone.directives import form
 from collective.dexteritytextindexer import searchable
@@ -76,6 +77,11 @@ class IRoadworksDirectoryItem(IDirectoryItem):
         title=_(u'Image'),
         required=False,
         default=None
+    )
+
+    attachment = NamedFile(
+        title=_(u'Attachment'),
+        required=False
     )
 
 # Ensure that the uploaded image at least has an image header.
