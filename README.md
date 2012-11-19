@@ -11,7 +11,7 @@ seantis.dir.roadworks builds on seantis.dir.base, adding information about ongoi
 
 # Dependencies
 
-seantis.dir.roadworks relies on Plone 4.2+ with dexterity and seantis.dir.base:
+seantis.dir.roadworks relies on Plone 4.2+ with dexterity and seantis.dir.base
 
 # Installation
 
