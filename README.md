@@ -5,6 +5,10 @@ To learn more about seantis.dir.base visit [https://github.com/seantis/seantis.d
 
 seantis.dir.roadworks builds on seantis.dir.base, adding information about ongoing roadworks in a chosen area.
 
+# Build Status
+
+[![Build Status](https://secure.travis-ci.org/seantis/seantis.dir.roadworks.png)](https://travis-ci.org/seantis/seantis.dir.roadworks)
+
 # Dependencies
 
 seantis.dir.roadworks relies on Plone 4.2+ with dexterity and seantis.dir.base:
