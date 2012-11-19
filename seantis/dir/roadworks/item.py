@@ -1,7 +1,10 @@
+import imghdr
 from five import grok
 from zope.schema import TextLine
 from zope.schema.interfaces import IText
+from zope.interface import Invalid
 from plone.namedfile.field import NamedImage
+from plone.directives import form
 from collective.dexteritytextindexer import searchable
 
 from seantis.dir.base import item
@@ -74,6 +77,15 @@ class IRoadworksDirectoryItem(IDirectoryItem):
         required=False,
         default=None
     )
+
+# Ensure that the uploaded image at least has an image header.
+@form.validator(field=IRoadworksDirectoryItem['image'])
+def validate_image(value):
+    if not value:
+        return
+
+    if not imghdr.what(value.filename, value.data):
+        raise Invalid(_(u'Unknown image format'))
 
 class RoadworksDirectoryItem(item.DirectoryItem):
     pass

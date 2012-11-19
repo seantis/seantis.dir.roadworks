@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-08-16 12:45+0000\n"
+"POT-Creation-Date: 2012-11-19 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,35 +14,36 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./item.py:53
+#: ./item.py:59
 msgid "Closures"
 msgstr "Sperrungen"
 
-#: ./item.py:35
+#: ./item.py:41
 msgid "Construction Works"
 msgstr "Bauarbeiten"
 
-#: ./item.py:59
+#: ./item.py:65
 msgid "Constructor"
 msgstr "Bauherrschaft"
 
-#: ./item.py:65
+#: ./item.py:71
 msgid "Contact"
 msgstr "Kontakt"
 
-#: ./directory.py:11
+#: ./directory.py:12
+#: ./item.py:76
 msgid "Image"
 msgstr "Bild"
 
-#: ./item.py:47
+#: ./item.py:53
 msgid "Obstacles"
 msgstr "Behinderungen"
 
-#: ./item.py:17
+#: ./item.py:23
 msgid "Project"
 msgstr "Projekt"
 
-#: ./item.py:23
+#: ./item.py:29
 msgid "Road"
 msgstr "Strasse"
 
@@ -54,11 +55,15 @@ msgstr "Strassenbau Verzeichnis"
 msgid "Roadworks Directory Item"
 msgstr "Strassenbau Verzeichnis Eintrag"
 
-#: ./item.py:29
+#: ./item.py:35
 msgid "Section"
 msgstr "Strassenabschnitt"
 
-#: ./item.py:41
+#: ./item.py:47
 msgid "Timespan"
 msgstr "Bauzeit"
+
+#: ./item.py:89
+msgid "Unknown image format"
+msgstr "Unbekanntes Bild-Format"
 
