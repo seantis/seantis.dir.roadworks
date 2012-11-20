@@ -122,11 +122,23 @@ class View(core.View):
         titles = dict(zip(fields, map(title, fields)))
         order = sorted(titles.values())
 
+        items = []
         for field in sorted(fields, key=lambda f: order.index(titles[f])):
             # Show only fields whose string representation makes sense.
             if IText.providedBy(IRoadworksDirectoryItem[field]) and \
                getattr(self.context, field):
-                yield titles[field], getattr(self.context, field)
+               items.append((titles[field], getattr(self.context, field)))
+
+        if self.context.attachment:
+            attachment = self.context.attachment
+            link = '<a href="%s/@@download/attachment">%s (%s KB)</a>' % (
+                self.context.absolute_url(),
+                attachment.filename, 
+                attachment.getSize() / 1024
+            )
+            items.append((titles['attachment'], link))
+
+        return items
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
     """Adapter extending the import/export fieldmap of seantis.dir.roadworks.item."""

@@ -31,12 +31,21 @@ class TestView(IntegrationTestCase):
         item = self.add_item(directory)
 
         view = View(item, self.portal.REQUEST)
-        details = [detail for detail in view.details()]
-        self.assertEqual([], details)
+        self.assertEqual([], view.details())
 
         item.road = u'Unter der Egg'
-        details = [detail for detail in view.details()]
-        self.assertEqual([(u'Road', u'Unter der Egg')], details)
+        self.assertEqual([(u'Road', u'Unter der Egg')], view.details())
+
+    def test_details_attachment(self):
+        directory = self.add_directory()
+        item = self.add_item(directory)
+        item.road = u'Unter der Egg'
+        item.attachment = NamedFile('Dummy content', filename=u'test.txt')
+        
+        view = View(item, self.portal.REQUEST)
+        attachment_detail = view.details()[1]
+        self.assertEqual(u'Attachment', attachment_detail[0])
+        self.assertTrue(u'test.txt (0 KB)' in attachment_detail[1])
 
 class TestRoadworkMapMarker(IntegrationTestCase):
 
