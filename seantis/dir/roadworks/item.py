@@ -25,15 +25,15 @@ class IRoadworksDirectoryItem(IDirectoryItem):
         required=False
     )
 
-    searchable('road')
-    road = TextLine(
-        title=_(u'Road'),
-        required=False
-    )
-
     searchable('section')
     section = TextLine(
         title=_(u'Section'),
+        required=False
+    )
+
+    searchable('road')
+    road = TextLine(
+        title=_(u'Road'),
         required=False
     )
 
