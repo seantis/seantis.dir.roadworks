@@ -11,11 +11,14 @@ from collective.dexteritytextindexer import searchable
 from seantis.dir.base import item
 from seantis.dir.base import core
 from seantis.dir.base import utils
-from seantis.dir.base.interfaces import IFieldMapExtender, IDirectoryItem, IMapMarker
+from seantis.dir.base.interfaces import (
+    IFieldMapExtender, IDirectoryItem, IMapMarker
+)
 
 from seantis.dir.roadworks.directory import IRoadworksDirectory
 from seantis.dir.roadworks import _
-  
+
+
 class IRoadworksDirectoryItem(IDirectoryItem):
     """Extends the seantis.dir.IDirectoryItem."""
 
@@ -84,6 +87,7 @@ class IRoadworksDirectoryItem(IDirectoryItem):
         required=False
     )
 
+
 # Ensure that the uploaded image at least has an image header.
 @form.validator(field=IRoadworksDirectoryItem['image'])
 def validate_image(value):
@@ -93,8 +97,10 @@ def validate_image(value):
     if not imghdr.what(value.filename, value.data):
         raise Invalid(_(u'Unknown image format'))
 
+
 class RoadworksDirectoryItem(item.DirectoryItem):
     pass
+
 
 class RoadworksDirectoryItemViewlet(grok.Viewlet):
     grok.context(IRoadworksDirectoryItem)
@@ -104,6 +110,7 @@ class RoadworksDirectoryItemViewlet(grok.Viewlet):
 
     template = grok.PageTemplateFile('templates/listitem.pt')
 
+
 class View(core.View):
     """Default view of a seantis.dir.roadworks item."""
     grok.context(IRoadworksDirectoryItem)
@@ -112,36 +119,40 @@ class View(core.View):
     template = grok.PageTemplateFile('templates/item.pt')
 
     def details(self):
-        fields = sorted(IRoadworksDirectoryItem.names())
-        
+        fields = IRoadworksDirectoryItem.names()
+
         def title(field):
-            return utils.translate(
-                self.context, self.request, IRoadworksDirectoryItem[field].title
+            return utils.translate(self.context, self.request,
+                IRoadworksDirectoryItem[field].title
             )
 
         titles = dict(zip(fields, map(title, fields)))
-        order = sorted(titles.values())
 
         items = []
-        for field in sorted(fields, key=lambda f: order.index(titles[f])):
+        order = lambda f: IRoadworksDirectoryItem.get(f).order
+        for field in sorted(fields, key=order):
             # Show only fields whose string representation makes sense.
             if IText.providedBy(IRoadworksDirectoryItem[field]) and \
-               getattr(self.context, field):
-               items.append((titles[field], getattr(self.context, field)))
+                getattr(self.context, field):
+                items.append((titles[field], getattr(self.context, field)))
 
         if self.context.attachment:
             attachment = self.context.attachment
             link = '<a href="%s/@@download/attachment">%s (%s KB)</a>' % (
                 self.context.absolute_url(),
-                attachment.filename, 
+                attachment.filename,
                 attachment.getSize() / 1024
             )
             items.append((titles['attachment'], link))
 
         return items
 
+
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
-    """Adapter extending the import/export fieldmap of seantis.dir.roadworks.item."""
+    """Adapter extending the import/export fieldmap of
+    seantis.dir.roadworks.item.
+
+    """
     grok.context(IRoadworksDirectory)
     grok.provides(IFieldMapExtender)
 
@@ -153,7 +164,7 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         itemmap.interface = IRoadworksDirectoryItem
 
         extended = [
-            'project', 
+            'project',
             'road',
             'section',
             'works',
@@ -163,8 +174,9 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
             'constructor',
             'contact'
         ]
-        
+
         itemmap.add_fields(extended, len(itemmap))
+
 
 class RoadworkMapMarker(grok.Adapter):
 
