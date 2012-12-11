@@ -5,17 +5,20 @@ from seantis.dir.base import directory
 from seantis.dir.base.interfaces import IDirectory
 from seantis.dir.roadworks import _
 
+
 class IRoadworksDirectory(IDirectory):
     """Extends the seantis.dir.base.directory.IDirectory"""
 
     image = NamedImage(
-            title=_(u'Image'),
-            required=False,
-            default=None
-        )
+        title=_(u'Image'),
+        required=False,
+        default=None
+    )
+
 
 class RoadworksDirectory(directory.Directory):
     pass
+
 
 class ExtendedDirectoryViewlet(grok.Viewlet):
     grok.context(IRoadworksDirectory)

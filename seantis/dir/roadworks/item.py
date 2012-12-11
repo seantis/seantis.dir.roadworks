@@ -122,7 +122,8 @@ class View(core.View):
         fields = IRoadworksDirectoryItem.names()
 
         def title(field):
-            return utils.translate(self.context, self.request,
+            return utils.translate(
+                self.context, self.request,
                 IRoadworksDirectoryItem[field].title
             )
 
@@ -132,8 +133,8 @@ class View(core.View):
         order = lambda f: IRoadworksDirectoryItem.get(f).order
         for field in sorted(fields, key=order):
             # Show only fields whose string representation makes sense.
-            if IText.providedBy(IRoadworksDirectoryItem[field]) and \
-                getattr(self.context, field):
+            if (IText.providedBy(IRoadworksDirectoryItem[field]) and
+                    getattr(self.context, field)):
                 items.append((titles[field], getattr(self.context, field)))
 
         if self.context.attachment:

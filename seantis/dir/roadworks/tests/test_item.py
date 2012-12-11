@@ -8,6 +8,7 @@ from seantis.dir.roadworks.item import validate_image
 from seantis.dir.roadworks.item import View
 from seantis.dir.roadworks.tests import IntegrationTestCase
 
+
 class TestImageValidator(TestCase):
 
     def test_validate_image(self):
@@ -23,6 +24,7 @@ class TestImageValidator(TestCase):
         image.close()
         image = NamedImage(image_data, filename=u'test.png')
         self.assertEqual(None, result)
+
 
 class TestView(IntegrationTestCase):
 
@@ -41,11 +43,12 @@ class TestView(IntegrationTestCase):
         item = self.add_item(directory)
         item.road = u'Unter der Egg'
         item.attachment = NamedFile('Dummy content', filename=u'test.txt')
-        
+
         view = View(item, self.portal.REQUEST)
         attachment_detail = view.details()[1]
         self.assertEqual(u'Attachment', attachment_detail[0])
         self.assertTrue(u'test.txt (0 KB)' in attachment_detail[1])
+
 
 class TestRoadworkMapMarker(IntegrationTestCase):
 
@@ -55,5 +58,6 @@ class TestRoadworkMapMarker(IntegrationTestCase):
 
         marker = IMapMarker(item)
         url = marker.url('A')
-        expected = '++resource++seantis.dir.roadworks.images/construction-marker.png'
+        expected = \
+            '++resource++seantis.dir.roadworks.images/construction-marker.png'
         self.assertIn(expected, url)
