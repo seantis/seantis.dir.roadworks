@@ -1,8 +1,6 @@
-graft */*/*/js
-graft */*/*/css
-graft */*/*/locales
-graft */*/*/profiles
-graft */*/*/templates
-global-include *.zcml
-global-include README.md
-global-include docs/*
+recursive-include seantis *
+recursive-include docs *
+include *.txt
+include *.rst
+global-exclude *.mo
+global-exclude *.pyc
