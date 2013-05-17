@@ -102,15 +102,6 @@ class RoadworksDirectoryItem(item.DirectoryItem):
     pass
 
 
-class RoadworksDirectoryItemViewlet(grok.Viewlet):
-    grok.context(IRoadworksDirectoryItem)
-    grok.name('seantis.dir.roadworks.item.detail')
-    grok.require('zope2.View')
-    grok.viewletmanager(item.DirectoryItemViewletManager)
-
-    template = grok.PageTemplateFile('templates/listitem.pt')
-
-
 class View(core.View):
     """Default view of a seantis.dir.roadworks item."""
     grok.context(IRoadworksDirectoryItem)
