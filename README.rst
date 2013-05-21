@@ -10,12 +10,19 @@ seantis.dir.roadworks builds on seantis.dir.base, adding information
 about ongoing roadworks in a chosen area.
 
 Build Status
-============
+------------
 
 |Build Status|
 
 .. |Build Status| image:: https://secure.travis-ci.org/seantis/seantis.dir.roadworks.png
    :target: https://travis-ci.org/seantis/seantis.dir.roadworks
+
+Latest PyPI Release
+-------------------
+
+.. image:: https://pypip.in/v/seantis.dir.roadworks/badge.png
+    :target: https://crate.io/packages/seantis.dir.roadworks
+    :alt: Latest PyPI Release
 
 Dependencies
 ============
