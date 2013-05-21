@@ -1,13 +1,15 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3.1'
+version = '1.5'
 
 setup(name='seantis.dir.roadworks',
       version=version,
       description="Directory of Roadworks",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description='\n'.join((
+          open("README.rst").read(),
+          open(os.path.join("docs", "HISTORY.txt")).read()
+      )),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
@@ -30,7 +32,7 @@ setup(name='seantis.dir.roadworks',
           'collective.autopermission',
           'collective.testcaselayer',
           'collective.dexteritytextindexer',
-          'seantis.dir.base>=1.3'
+          'seantis.dir.base>=1.5'
       ],
       entry_points="""
       [z3c.autoinclude.plugin]
