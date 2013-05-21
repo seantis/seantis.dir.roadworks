@@ -13,7 +13,7 @@
       <div class="directoryInfoText">
     <div>
         <a tal:attributes="href brain/getURL; id brain/id" tal:content="brain/Title"></a>
-        <div style="font-weight: normal;" class="documentDescription" tal:content="python: brain.getObject().works"></div>
+        <div style="font-weight: normal;" class="documentDescription" tal:content="brain/works"></div>
     </div>
   </div>
     </metal:fill-slot>
