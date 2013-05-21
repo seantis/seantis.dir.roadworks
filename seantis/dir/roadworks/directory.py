@@ -27,3 +27,12 @@ class ExtendedDirectoryViewlet(grok.Viewlet):
     grok.viewletmanager(directory.DirectoryViewletManager)
 
     template = grok.PageTemplateFile('templates/directorydetail.pt')
+
+
+class View(directory.View):
+    grok.context(IRoadworksDirectory)
+    grok.require('zope2.View')
+
+    template = grok.PageTemplateFile('templates/directory.pt')
+
+    itemsperpage = 100
