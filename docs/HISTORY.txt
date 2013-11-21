@@ -1,6 +1,10 @@
 
 # Changelog
 
+1.7
+---
+- Update to seantis.dir.base 1.7
+
 1.5
 ---
 - Update to seantis.dir.base 1.5

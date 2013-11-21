@@ -44,4 +44,13 @@
         profile="seantis.dir.roadworks:default">
     </genericsetup:upgradeStep>
 
+    <genericsetup:upgradeStep
+        title="Upgrade to seantis.dir.base 1.7"
+        description=""
+        source="1000"
+        destination="1001"
+        handler=".upgrades.upgrade_1000_to_1001"
+        profile="seantis.dir.roadworks:default">
+    </genericsetup:upgradeStep>
+
 </configure>

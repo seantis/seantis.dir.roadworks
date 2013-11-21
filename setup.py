@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.5'
+version = '1.7'
 
 setup(name='seantis.dir.roadworks',
       version=version,
@@ -32,7 +32,7 @@ setup(name='seantis.dir.roadworks',
           'collective.autopermission',
           'collective.testcaselayer',
           'collective.dexteritytextindexer',
-          'seantis.dir.base>=1.5'
+          'seantis.dir.base>=1.7'
       ],
       entry_points="""
       [z3c.autoinclude.plugin]

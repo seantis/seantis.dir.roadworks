@@ -23,3 +23,18 @@ def upgrade_to_1000(context):
     add_behavior_to_item(
         context, 'seantis.dir.roadworks', IRoadworksDirectoryItem
     )
+
+def upgrade_1000_to_1001(context):
+    # add collective.geo.behaviour
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile(
+        'profile-collective.geo.behaviour:default'
+    )
+
+    add_behavior_to_item(
+        context, 'seantis.dir.roadworks', IRoadworksDirectoryItem
+    )
+
+    # update css and js
+    getToolByName(context, 'portal_css').cookResources()
+    getToolByName(context, 'portal_javascripts').cookResources()
