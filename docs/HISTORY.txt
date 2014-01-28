@@ -1,6 +1,12 @@
 
 # Changelog
 
+1.7.1 (unreleased)
+------------------
+
+- Integrates seantis.plonetools.
+  [href]
+
 1.7
 ---
 - Update to seantis.dir.base 1.7

@@ -1,8 +1,11 @@
 from unittest import TestCase
 from os import path
 from zope.interface import Invalid
+
+from plone import api
 from plone.namedfile import NamedFile
 from plone.namedfile import NamedImage
+
 from seantis.dir.base.interfaces import IMapMarker
 from seantis.dir.roadworks.item import validate_image
 from seantis.dir.roadworks.item import View
@@ -29,8 +32,18 @@ class TestImageValidator(TestCase):
 class TestView(IntegrationTestCase):
 
     def test_details(self):
-        directory = self.add_directory()
-        item = self.add_item(directory)
+        self.login('admin')
+
+        directory = api.content.create(
+            container=self.new_temporary_folder(),
+            type='seantis.dir.roadworks.directory',
+            title='directory'
+        )
+        item = api.content.create(
+            container=directory,
+            type='seantis.dir.roadworks.item',
+            title='item'
+        )
 
         view = View(item, self.portal.REQUEST)
         self.assertEqual([], view.details())
@@ -39,8 +52,19 @@ class TestView(IntegrationTestCase):
         self.assertEqual([(u'Road', u'Unter der Egg')], view.details())
 
     def test_details_attachment(self):
-        directory = self.add_directory()
-        item = self.add_item(directory)
+        self.login('admin')
+
+        directory = api.content.create(
+            container=self.new_temporary_folder(),
+            type='seantis.dir.roadworks.directory',
+            title='directory'
+        )
+        item = api.content.create(
+            container=directory,
+            type='seantis.dir.roadworks.item',
+            title='item'
+        )
+
         item.road = u'Unter der Egg'
         item.attachment = NamedFile('Dummy content', filename=u'test.txt')
 
@@ -53,8 +77,18 @@ class TestView(IntegrationTestCase):
 class TestRoadworkMapMarker(IntegrationTestCase):
 
     def test_url(self):
-        directory = self.add_directory()
-        item = self.add_item(directory)
+        self.login('admin')
+
+        directory = api.content.create(
+            container=self.new_temporary_folder(),
+            type='seantis.dir.roadworks.directory',
+            title='directory'
+        )
+        item = api.content.create(
+            container=directory,
+            type='seantis.dir.roadworks.item',
+            title='item'
+        )
 
         marker = IMapMarker(item)
         url = marker.url('A')

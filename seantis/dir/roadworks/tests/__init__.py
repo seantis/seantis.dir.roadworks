@@ -1,14 +1,25 @@
-from seantis.dir.roadworks.tests.layer import Layer
-from Products.PloneTestCase.ptc import PloneTestCase
+from zope.security.management import newInteraction, endInteraction
+
+from seantis.plonetools.testing import TestCase
+from seantis.dir.roadworks.testing import (
+    INTEGRATION_TESTING,
+    FUNCTIONAL_TESTING
+)
 
 
-class IntegrationTestCase(PloneTestCase):
-    layer = Layer
+# to use with integration where security interactions need to be done manually
+class IntegrationTestCase(TestCase):
+    layer = INTEGRATION_TESTING
 
-    def add_directory(self, name='Directory'):
-        self.folder.invokeFactory('seantis.dir.roadworks.directory', name)
-        return self.folder[name]
+    def setUp(self):
+        super(IntegrationTestCase, self).setUp()
+        newInteraction()
 
-    def add_item(self, directory, name='DirectoryItem'):
-        directory.invokeFactory('seantis.dir.roadworks.item', name)
-        return directory[name]
+    def tearDown(self):
+        endInteraction()
+        super(IntegrationTestCase, self).tearDown()
+
+
+# to use with the browser which does its own security interactions
+class FunctionalTestCase(TestCase):
+    layer = FUNCTIONAL_TESTING
