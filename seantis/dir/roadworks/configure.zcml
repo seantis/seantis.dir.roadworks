@@ -53,4 +53,13 @@
         profile="seantis.dir.roadworks:default">
     </genericsetup:upgradeStep>
 
+    <genericsetup:upgradeStep
+        title="Remove 'Add new..' from roadworks item"
+        description=""
+        source="1001"
+        destination="1002"
+        handler=".upgrades.upgrade_1001_to_1002"
+        profile="seantis.dir.roadworks:default">
+    </genericsetup:upgradeStep>
+
 </configure>

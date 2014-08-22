@@ -24,6 +24,7 @@ def upgrade_to_1000(context):
         context, 'seantis.dir.roadworks', IRoadworksDirectoryItem
     )
 
+
 def upgrade_1000_to_1001(context):
     # add collective.geo.behaviour
     setup = getToolByName(context, 'portal_setup')
@@ -38,3 +39,11 @@ def upgrade_1000_to_1001(context):
     # update css and js
     getToolByName(context, 'portal_css').cookResources()
     getToolByName(context, 'portal_javascripts').cookResources()
+
+
+def upgrade_1001_to_1002(context):
+    # update types
+    setup = getToolByName(context, 'portal_setup')
+    setup.runImportStepFromProfile(
+        'profile-seantis.dir.roadworks:default', 'typeinfo'
+    )

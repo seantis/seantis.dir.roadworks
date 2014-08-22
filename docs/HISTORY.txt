@@ -1,6 +1,12 @@
 
 # Changelog
 
+1.7.2 (unreleased)
+------------------
+
+- Remove 'Add new..' from roadworks item. Closes #1.
+  [href]
+
 1.7.1 (2014-02-05)
 ------------------
 
