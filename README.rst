@@ -20,7 +20,7 @@ Build Status
 Latest PyPI Release
 -------------------
 
-.. image:: https://pypip.in/v/seantis.dir.roadworks/badge.png
+.. image:: https://img.shields.io/pypi/v/seantis.dir.roadworks.svg
     :target: https://crate.io/packages/seantis.dir.roadworks
     :alt: Latest PyPI Release
 
@@ -57,7 +57,7 @@ Installation
 
        [instance]
        ...
-       environment-vars = 
+       environment-vars =
            ...
            zope_i18n_compile_mo_files true
 
