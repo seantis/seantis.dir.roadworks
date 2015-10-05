@@ -13,4 +13,5 @@ script: bin/coverage bin/test -s seantis.dir.roadworks
 
 after_success:
     - pip install coveralls
+    - python -m coverage.pickle2json
     - coveralls
