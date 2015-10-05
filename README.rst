@@ -17,6 +17,15 @@ Build Status
 .. |Build Status| image:: https://secure.travis-ci.org/seantis/seantis.dir.roadworks.png
    :target: https://travis-ci.org/seantis/seantis.dir.roadworks
 
+
+Coverage
+--------
+
+.. image:: https://coveralls.io/repos/seantis/seantis.dir.roadworks/badge.png?branch=master
+  :target: https://coveralls.io/r/seantis/seantis.dir.roadworks?branch=master
+  :alt: Project Coverage
+
+
 Latest PyPI Release
 -------------------
 
