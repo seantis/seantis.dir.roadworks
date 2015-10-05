@@ -3,6 +3,12 @@ import os
 
 version = '1.7.3'
 
+tests_require = [
+    'collective.testcaselayer',
+    'plone.app.testing',
+    'collective.betterbrowser[pyquery]'
+]
+
 setup(name='seantis.dir.roadworks',
       version=version,
       description="Directory of Roadworks",
@@ -35,6 +41,8 @@ setup(name='seantis.dir.roadworks',
           'seantis.dir.base>=1.7',
           'seantis.plonetools>=0.9'
       ],
+      tests_require=tests_require,
+      extras_require=dict(tests=tests_require),
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
