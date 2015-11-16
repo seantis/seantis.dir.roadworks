@@ -12,7 +12,7 @@
     <metal:fill-slot fill-slot="result-list-entry">
       <div class="directoryInfoText">
     <div>
-        <a tal:attributes="href brain/getURL; id brain/id" tal:content="brain/Title"></a>
+        <h2><a tal:attributes="href brain/getURL; id brain/id" tal:content="brain/Title"></a></h2>
         <div style="font-weight: normal;" class="documentDescription" tal:content="brain/works"></div>
     </div>
   </div>
